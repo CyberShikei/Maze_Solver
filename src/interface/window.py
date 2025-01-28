@@ -1,4 +1,5 @@
 from tkinter import Tk, BOTH, Canvas
+from .line import Line
 
 
 class Window:
@@ -24,3 +25,11 @@ class Window:
 
     def close(self):
         self.__is_running = False
+
+    def draw_line(self, line: Line, fill="black"):
+        line.draw(self.__canvas, fill)
+
+    def set_size(self, width, height):
+        self.__root.geometry(f"{width}x{height}")
+        self.__canvas.config(width=width, height=height)
+        self.redraw()

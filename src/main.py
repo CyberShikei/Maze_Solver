@@ -1,8 +1,24 @@
-from interface import Window
+from interface import Window, Maze
+
+GRID_COLS = 20
+GRID_ROWS = 20
+
+CELL_SIZE = 40
+
+CUSHION = 30
+WINDOW_WIDTH = GRID_COLS * CELL_SIZE + 2 + CUSHION*2
+WINDOW_HEIGHT = GRID_ROWS * CELL_SIZE + 2 + CUSHION*2
 
 
 def main():
-    window = Window(800, 600)
+    window = Window(WINDOW_WIDTH, WINDOW_HEIGHT)
+
+    maze = Maze(CUSHION, CUSHION, GRID_ROWS, GRID_COLS,
+                CELL_SIZE, CELL_SIZE, window)
+
+    maze.generate()
+    maze.solve()
+
     window.wait_for_close()
 
 
