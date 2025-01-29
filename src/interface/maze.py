@@ -60,7 +60,9 @@ class Maze:
 
         self.__cells[i][j].visited = True
         walls = self.__ceck_walls(i, j)
-        for wall in walls:
+        for u in range(len(walls)):
+            wall = random.choice(walls)
+            walls.remove(wall)
             self.__cells[i][j].draw_move(self.__cells[wall[0]][wall[1]])
             if self.__solve_r(wall[0], wall[1]):
                 self.__cells[i][j].draw_move(self.__cells[wall[0]][wall[1]])
@@ -195,7 +197,7 @@ class Maze:
 
     def __animate(self):
         self.__win.redraw()
-        time.sleep(0.05)
+        time.sleep(0.002)
 
     def __create_cells(self):
         for i in range(self.__num_rows):

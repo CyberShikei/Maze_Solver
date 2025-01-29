@@ -1,9 +1,9 @@
 from interface import Window, Maze
 
-GRID_COLS = 20
-GRID_ROWS = 20
+GRID_COLS = 40
+GRID_ROWS = 40
 
-CELL_SIZE = 40
+CELL_SIZE = 15
 
 CUSHION = 30
 WINDOW_WIDTH = GRID_COLS * CELL_SIZE + 2 + CUSHION*2
